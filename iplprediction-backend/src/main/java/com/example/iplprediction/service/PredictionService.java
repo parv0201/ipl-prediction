@@ -64,6 +64,8 @@ public class PredictionService {
                 .toLocalDate());
         String todayDate = formatter.format(LocalDate.now(ZoneId.of("Asia/Kolkata")));
 
+        log.info("matchDate {}", matchDate);
+        log.info("todayDate {}", todayDate);
         return matchDate.equalsIgnoreCase(todayDate);
     }
 
