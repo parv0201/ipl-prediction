@@ -31,7 +31,7 @@ export class SignupComponent implements OnDestroy {
   public onSubmit(): void {
     this.signUpValid = true;
 
-    this.http.post('http://localhost:8080/user?username=' + this.username, null)
+    this.http.post('http://ec2-3-110-118-151.ap-south-1.compute.amazonaws.com:8080/user?username=' + this.username, null)
       .subscribe({
         next: (data) => {
           localStorage.setItem("userId", String(data));

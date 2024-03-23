@@ -20,7 +20,7 @@ export class LeaderboardComponent implements OnInit {
     }
 
     public ngOnInit(): void {
-        this.http.get<User[]>('http://localhost:8080/user/all')
+        this.http.get<User[]>('http://ec2-3-110-118-151.ap-south-1.compute.amazonaws.com:8080/user/all')
             .subscribe({
                 next: (users: User[]) => {
                     this.users = users;
