@@ -1,0 +1,10 @@
+rapidapi:
+  baseUrl: https://cricbuzz-cricket.p.rapidapi.com/
+  key: 1d7799e2bbmsh3ae5d4656105e39p11429ejsn8bd85acf585d
+  host: cricbuzz-cricket.p.rapidapi.com
+
+spring:
+  datasource:
+    url: jdbc:postgresql://ec2-3-110-118-151.ap-south-1.compute.amazonaws.com:5432/iplprediction
+    username: app
+    password: App@1806

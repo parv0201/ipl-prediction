@@ -1,0 +1,31 @@
+.content {
+    padding: 16px;
+}
+
+.content>mat-card {
+    margin-bottom: 16px;
+}
+
+p {
+    margin-top: 10px;
+}
+
+button {
+    margin: 5pt;
+    height: 35pt;
+}
+
+h2 {
+    text-align: center;
+}
+
+.is-selected {
+    font-weight: 900;
+    color: black;
+}
+
+#wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }

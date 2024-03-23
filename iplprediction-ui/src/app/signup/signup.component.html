@@ -1,0 +1,18 @@
+<mat-card>
+    <mat-card-content>
+        <form #signUpForm="ngForm" (ngSubmit)="onSubmit()">
+            <h2>Sign Up</h2>
+            <mat-form-field>
+                <input matInput placeholder="Username" [(ngModel)]="username" name="username" required>
+                <mat-error>
+                    Please provide a valid username
+                </mat-error>
+            </mat-form-field>
+            <button mat-raised-button color="primary" [disabled]="!signUpForm.form.valid">Signup</button>
+            <mat-error *ngIf="!signUpValid" style="padding: 10pt">
+                This username already exist
+            </mat-error>
+        </form>
+        <h4 style="padding: 10pt;"> Already registered? <a href="/login"> Log In </a> </h4>
+    </mat-card-content>
+</mat-card>
