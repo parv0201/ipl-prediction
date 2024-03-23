@@ -37,7 +37,6 @@ public class PredictionService {
 
         List<MatchDto> matchDtoList = matchesDao.getAllMatches();
         matchDtoList.forEach(matchDto -> {
-            log.info("macthId {}", matchDto.getMatchId());
             if (isMatchHappeningToday(matchDto.getMatchStartDate())) {
                 PredictionDto predictionDto = new PredictionDto();
                 predictionDto.setMatchId(matchDto.getMatchId());
@@ -64,8 +63,6 @@ public class PredictionService {
         String matchDate = formatter.format(matchStartDate.toLocalDateTime().atZone(ZoneId.of("Asia/Kolkata")));
         String todayDate = formatter.format(LocalDate.now(ZoneId.of("Asia/Kolkata")));
 
-        log.info("matchDate {}", matchDate);
-        log.info("todayDate {}", todayDate);
         return matchDate.equalsIgnoreCase(todayDate);
     }
 
