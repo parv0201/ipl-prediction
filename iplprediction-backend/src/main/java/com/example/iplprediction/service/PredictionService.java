@@ -36,6 +36,7 @@ public class PredictionService {
 
         List<MatchDto> matchDtoList = matchesDao.getAllMatches();
         matchDtoList.forEach(matchDto -> {
+            log.info("macthId {}", matchDto.getMatchId());
             if (isMatchHappeningToday(matchDto.getMatchStartDate())) {
                 PredictionDto predictionDto = new PredictionDto();
                 predictionDto.setMatchId(matchDto.getMatchId());
