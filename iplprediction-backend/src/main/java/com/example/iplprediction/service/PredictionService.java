@@ -9,6 +9,7 @@ import com.example.iplprediction.dto.PredictionDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.sql.Time;
 import java.sql.Timestamp;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
@@ -58,11 +59,9 @@ public class PredictionService {
         return predictionDtos;
     }
 
-    private boolean isMatchHappeningToday(Date matchStartDate) {
+    private boolean isMatchHappeningToday(Timestamp matchStartDate) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-YYYY");
-        String matchDate = formatter.format(Instant.ofEpochMilli(matchStartDate.getTime())
-                .atZone(ZoneId.of("Asia/Kolkata"))
-                .toLocalDate());
+        String matchDate = formatter.format(matchStartDate.toLocalDateTime().atZone(ZoneId.of("Asia/Kolkata")));
         String todayDate = formatter.format(LocalDate.now(ZoneId.of("Asia/Kolkata")));
 
         log.info("matchDate {}", matchDate);
