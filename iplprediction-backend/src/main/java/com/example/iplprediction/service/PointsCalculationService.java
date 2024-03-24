@@ -59,7 +59,7 @@ public class PointsCalculationService {
         this.userDao = userDao;
     }
 
-    @Scheduled(cron = "0 27 12 * * *", zone ="Asia/Kolkata")
+    @Scheduled(cron = "0 0 2 * * *", zone ="Asia/Kolkata")
     public void calculatePoints() throws IOException {
         // get all previous day matches
         Timestamp previousDayTimeStamp =
