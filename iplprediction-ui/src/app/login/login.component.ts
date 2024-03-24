@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   public onSubmit(): void {
     this.loginValid = true;
 
-    this.http.get('http://localhost:8080/user?username=' + this.username, {
+    this.http.get('http://ec2-43-204-215-77.ap-south-1.compute.amazonaws.com:8080/user?username=' + this.username, {
       headers : {
         "Access-Control-Allow-Origin": "*"
       }
