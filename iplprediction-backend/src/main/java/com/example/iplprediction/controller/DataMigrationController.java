@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 import java.io.IOException;
 
 @RequestMapping("/migration")
-@CrossOrigin("*")
 @RestController
 public class DataMigrationController {
 
@@ -20,18 +19,21 @@ public class DataMigrationController {
     }
 
     @GetMapping("/team")
+    @CrossOrigin("*")
     public String populateTeamData() throws IOException {
         dataPopulationService.populateTeamsData();
         return "Success";
     }
 
     @GetMapping("/match")
+    @CrossOrigin("*")
     public String populateMatchData() throws IOException {
         dataPopulationService.populateMatchData();
         return "Success";
     }
 
     @GetMapping("/testData")
+    @CrossOrigin("*")
     public String testData() throws IOException {
         dataPopulationService.addTestData();
         return "Success";

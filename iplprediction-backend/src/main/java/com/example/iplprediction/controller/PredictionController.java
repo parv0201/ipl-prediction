@@ -11,7 +11,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/predictions")
-@CrossOrigin("*")
 public class PredictionController {
 
     private final PredictionService predictionService;
@@ -21,6 +20,7 @@ public class PredictionController {
     }
 
     @GetMapping
+    @CrossOrigin("*")
     public ResponseEntity<List<PredictionDto>> getAllPredictionsForDay(@RequestHeader("userId") Integer userId) {
         if (userId == null) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -29,6 +29,7 @@ public class PredictionController {
     }
 
     @PostMapping
+    @CrossOrigin("*")
     public ResponseEntity<String> predictWinnerTeam(@RequestHeader("userId") Integer userId, @RequestHeader("matchId") Integer matchId,
                                                     @RequestHeader("teamId") Integer teamId) {
         String predictionResponse = predictionService.savePrediction(userId, matchId, teamId);
@@ -40,6 +41,7 @@ public class PredictionController {
     }
 
     @GetMapping("/{matchId}")
+    @CrossOrigin("*")
     public ResponseEntity<List<MatchPredictionDto>> getAllPredictionsForMatch(@PathVariable("matchId") Integer matchId) {
         return ResponseEntity.ok(predictionService.getAllPredictionsForMatch(matchId));
     }

@@ -13,7 +13,6 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/user")
-@CrossOrigin("*")
 public class UserController {
 
     private final UserDao userDao;
@@ -23,6 +22,7 @@ public class UserController {
     }
 
     @GetMapping
+    @CrossOrigin("*")
     public ResponseEntity<Integer> getUser(@RequestParam("username") String username) {
         Integer userId = null;
         if (StringUtils.hasText(username)) {
@@ -36,6 +36,7 @@ public class UserController {
     }
 
     @PostMapping
+    @CrossOrigin("*")
     public ResponseEntity<Integer> createNewUser(@RequestParam("username") String username) {
         Integer userId = null;
         if (StringUtils.hasText(username)) {
