@@ -38,7 +38,11 @@ export class LoginComponent implements OnInit, OnDestroy {
   public onSubmit(): void {
     this.loginValid = true;
 
-    this.http.get('http://ec2-3-110-118-151.ap-south-1.compute.amazonaws.com:8080/user?username=' + this.username)
+    this.http.get('https://ec2-13-126-165-22.ap-south-1.compute.amazonaws.com:8080/user?username=' + this.username, {
+      headers : {
+        "Access-Control-Allow-Origin": "*"
+      }
+    })
       .subscribe({
         next: (data) => {
           localStorage.setItem("userId", String(data));

@@ -58,7 +58,7 @@ export class PredictionComponent implements OnInit {
             userId: String(userId)
         });
 
-        this.http.get<Match[]>('http://ec2-3-110-118-151.ap-south-1.compute.amazonaws.com:8080/predictions', {
+        this.http.get<Match[]>('https://ec2-13-126-165-22.ap-south-1.compute.amazonaws.com:8080/predictions', {
             headers: httpHeaders
         }).subscribe({
             next: (allMatches: Match[]) => {
@@ -79,7 +79,7 @@ export class PredictionComponent implements OnInit {
             "teamId": teamId
         });
 
-        this.http.post<String>('http://ec2-3-110-118-151.ap-south-1.compute.amazonaws.com:8080/predictions', null, {
+        this.http.post<String>('https://ec2-13-126-165-22.ap-south-1.compute.amazonaws.com:8080/predictions', null, {
             headers: httpHeaders,
             responseType: 'text' as 'json'
         }).subscribe({
