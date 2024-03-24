@@ -24,10 +24,11 @@ public class UserController {
     @GetMapping
     @CrossOrigin("*")
     public ResponseEntity<Integer> getUser(@RequestParam("username") String username) {
+        String trimmedLowerCaseUsername = username.trim().toLowerCase();
         Integer userId = null;
-        if (StringUtils.hasText(username)) {
+        if (StringUtils.hasText(trimmedLowerCaseUsername)) {
             // check if username already exists
-            userId = userDao.findByUserName(username);
+            userId = userDao.findByUserName(trimmedLowerCaseUsername);
             if (userId == null) {
                 return new ResponseEntity<>(HttpStatusCode.valueOf(404));
             }
@@ -38,14 +39,15 @@ public class UserController {
     @PostMapping
     @CrossOrigin("*")
     public ResponseEntity<Integer> createNewUser(@RequestParam("username") String username) {
+        String trimmedLowerCaseUsername = username.trim().toLowerCase();
         Integer userId = null;
-        if (StringUtils.hasText(username)) {
+        if (StringUtils.hasText(trimmedLowerCaseUsername)) {
             // check if username already exists
-            userId = userDao.findByUserName(username);
+            userId = userDao.findByUserName(trimmedLowerCaseUsername);
             if (userId != null) {
                 return new ResponseEntity<>(HttpStatusCode.valueOf(400));
             }
-            userId = userDao.save(username);
+            userId = userDao.save(trimmedLowerCaseUsername);
         }
 
         return new ResponseEntity<>(userId, HttpStatusCode.valueOf(200));
