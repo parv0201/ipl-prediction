@@ -14,14 +14,12 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
-import java.sql.Date;
 import java.sql.Timestamp;
 import java.time.Instant;
 import java.time.ZoneId;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.TimeZone;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -85,7 +83,7 @@ public class PointsCalculationService {
                     updatedPoints -= 2;
                 } else {
                     Integer predictedTeamId = matchPredictionDto.getTeamId();
-                    if (predictedTeamId == winningTeamId) {
+                    if (predictedTeamId.intValue() == winningTeamId.intValue()) {
                         updatedPoints += matchDto.getPoints();
                     } else {
                         if (matchDto.getMinusPoints() > 0) {
