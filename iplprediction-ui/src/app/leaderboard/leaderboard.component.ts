@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 export interface User {
+    rank: number,
     username: string;
     points: number;
 }
@@ -14,7 +15,7 @@ export interface User {
 })
 export class LeaderboardComponent implements OnInit {
     users: User[] = [];
-    displayedColumns: string[] = ['username', 'points'];
+    displayedColumns: string[] = ['rank', 'username', 'points'];
 
     constructor(private http: HttpClient, private router: Router) {
     }

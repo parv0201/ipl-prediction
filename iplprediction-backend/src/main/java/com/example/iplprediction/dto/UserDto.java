@@ -7,4 +7,5 @@ public class UserDto {
     private Integer userId;
     private String username;
     private Integer points;
+    private Integer rank;
 }
