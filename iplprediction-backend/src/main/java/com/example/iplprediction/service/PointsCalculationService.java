@@ -80,7 +80,7 @@ public class PointsCalculationService {
                 MatchPredictionDto matchPredictionDto = predictionsMap.get(user.getUserId());
                 if (matchPredictionDto == null) {
                     // User did not predict the team. Minus scoring
-                    updatedPoints -= 2;
+                    updatedPoints -= 10;
                 } else {
                     Integer predictedTeamId = matchPredictionDto.getTeamId();
                     if (predictedTeamId.intValue() == winningTeamId.intValue()) {
